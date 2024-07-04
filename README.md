@@ -1,73 +1,115 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+# Klinik App Backend
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+## Keterangan Aplikasi
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+Klinik App Backend adalah aplikasi backend yang dibuat menggunakan NestJS dan menggunakan MySQL sebagai database. Aplikasi ini menyediakan API untuk mengelola data pegawai, pasien, poli, dan jadwal dokter di sebuah klinik.
 
-## Description
+## Kebutuhan yang Perlu di Install
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+Pastikan komputer Anda telah terinstall dengan:
+- Node.js (versi terbaru)
+- npm atau yarn
+- MySQL (versi terbaru)
+- Git
 
-## Installation
-
+Anda juga perlu menginstall NestJS CLI secara global jika belum terinstall:
 ```bash
-$ npm install
+npm install -g @nestjs/cli
 ```
 
-## Running the app
+## Fitur-Fitur
 
-```bash
-# development
-$ npm run start
+Aplikasi ini memiliki fitur-fitur berikut:
+- CRUD (Create, Read, Update, Delete) untuk entitas Poli
+- CRUD untuk entitas Jadwal Dokter
+- CRUD untuk entitas Pegawai
+- CRUD untuk entitas Pasien
 
-# watch mode
-$ npm run start:dev
+## Cara Menginstall Aplikasi
 
-# production mode
-$ npm run start:prod
-```
+Ikuti langkah-langkah berikut untuk menginstall dan menjalankan aplikasi ini di komputer Anda:
 
-## Test
+1. Clone repository dari GitHub:
+    ```bash
+    git clone https://github.com/ferdinalaxewall/backend_klinik_app.git
+    ```
 
-```bash
-# unit tests
-$ npm run test
+2. Masuk ke direktori proyek:
+    ```bash
+    cd backend_klinik_app
+    ```
 
-# e2e tests
-$ npm run test:e2e
+3. Install dependensi menggunakan npm atau yarn:
+    ```bash
+    npm install
+    # atau
+    yarn install
+    ```
 
-# test coverage
-$ npm run test:cov
-```
+4. Konfigurasi database MySQL:
+    - Pastikan MySQL telah terinstall dan berjalan di komputer Anda.
+    - Buat database baru untuk aplikasi ini, misalnya `klinik_db`.
+    - Ubah file pada `src/app.module.ts` dan sesuaikan konfigurasi database di dalamnya:
 
-## Support
+    ```javascript
+    TypeOrmModule.forRoot({
+      type: 'mysql',
+      host: '127.0.0.1',
+      port: 3306,
+      username: 'root',
+      password: '',
+      database: 'klinik_app',
+    }),
+    ```
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+5. Jalankan migrasi database:
+    ```bash
+    npm run typeorm migration:run
+    # atau
+    yarn typeorm migration:run
+    ```
 
-## Stay in touch
+6. Jalankan aplikasi:
+    ```bash
+    npm run start
+    # atau
+    yarn start
+    ```
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+7. Aplikasi akan berjalan di `http://localhost:3000`. Anda dapat mengakses endpoint API melalui URL tersebut.
 
-## License
+## API Endpoints
 
-Nest is [MIT licensed](LICENSE).
+### Poli
+- GET `/poli` - Mengambil semua data poli
+- GET `/poli/:id` - Mengambil data poli berdasarkan ID
+- POST `/poli` - Menambahkan data poli baru
+- PUT `/poli/:id` - Memperbarui data poli berdasarkan ID
+- DELETE `/poli/:id` - Menghapus data poli berdasarkan ID
+
+### Jadwal Dokter
+- GET `/jadwal_dokter` - Mengambil semua data jadwal dokter
+- GET `/jadwal_dokter/:id` - Mengambil data jadwal dokter berdasarkan ID
+- POST `/jadwal_dokter` - Menambahkan data jadwal dokter baru
+- PUT `/jadwal_dokter/:id` - Memperbarui data jadwal dokter berdasarkan ID
+- DELETE `/jadwal_dokter/:id` - Menghapus data jadwal dokter berdasarkan ID
+
+### Pegawai
+- GET `/pegawai` - Mengambil semua data pegawai
+- GET `/pegawai/:id` - Mengambil data pegawai berdasarkan ID
+- POST `/pegawai` - Menambahkan data pegawai baru
+- PUT `/pegawai/:id` - Memperbarui data pegawai berdasarkan ID
+- DELETE `/pegawai/:id` - Menghapus data pegawai berdasarkan ID
+
+### Pasien
+- GET `/pasien` - Mengambil semua data pasien
+- GET `/pasien/:id` - Mengambil data pasien berdasarkan ID
+- POST `/pasien` - Menambahkan data pasien baru
+- PUT `/pasien/:id` - Memperbarui data pasien berdasarkan ID
+- DELETE `/pasien/:id` - Menghapus data pasien berdasarkan ID
+
+---
+
+Itulah keterangan lengkap tentang aplikasi Klinik App Backend beserta cara instalasi dan fitur-fitur yang disediakan.
+
+Sesuaikan file ini sesuai dengan kebutuhan dan informasi spesifik dari proyek Anda.
