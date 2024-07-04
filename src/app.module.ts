@@ -4,6 +4,8 @@ import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { PoliModule } from './poli/poli.module';
 import { JadwalDokterModule } from './jadwal_dokter/jadwal_dokter.module';
+import { PegawaiModule } from './pegawai/pegawai.module';
+import { PasienModule } from './pasien/pasien.module';
 
 @Module({
   imports: [
@@ -19,6 +21,8 @@ import { JadwalDokterModule } from './jadwal_dokter/jadwal_dokter.module';
     }),
     PoliModule,
     JadwalDokterModule,
+    PegawaiModule,
+    PasienModule,
   ],
   controllers: [AppController],
   providers: [AppService],
