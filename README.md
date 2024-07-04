@@ -7,10 +7,10 @@ Klinik App Backend adalah aplikasi backend yang dibuat menggunakan NestJS dan me
 ## Kebutuhan yang Perlu di Install
 
 Pastikan komputer Anda telah terinstall dengan:
-- Node.js (versi terbaru)
+- Node.js (versi terbaru) - [Download NodeJS](https://nodejs.org/en)
 - npm atau yarn
-- MySQL (versi terbaru)
-- Git
+- MySQL (versi terbaru) - [Download MySQL Server](https://www.mysql.com/downloads/)
+- Git - [Download Git](https://git-scm.com/downloads)
 
 Anda juga perlu menginstall NestJS CLI secara global jika belum terinstall:
 ```bash
