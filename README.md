@@ -48,7 +48,7 @@ Ikuti langkah-langkah berikut untuk menginstall dan menjalankan aplikasi ini di 
 
 4. Konfigurasi database MySQL:
     - Pastikan MySQL telah terinstall dan berjalan di komputer Anda.
-    - Buat database baru untuk aplikasi ini, misalnya `klinik_db`.
+    - Buat database baru untuk aplikasi ini, misalnya `klinik_app`.
     - Ubah file pada `src/app.module.ts` dan sesuaikan konfigurasi database di dalamnya:
 
     ```javascript
