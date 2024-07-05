@@ -17,7 +17,7 @@ export class JadwalDokterService {
   async findOne(id: number): Promise<JadwalDokter> {
     const data = await this.jadwalDokterRepository.findOneBy({ id });
     if (data) return data;
-    
+
     throw new Error('Jadwal Dokter not found!');
   }
 
@@ -26,7 +26,10 @@ export class JadwalDokterService {
   }
 
   async update(id: number, jadwalDokter: JadwalDokter): Promise<JadwalDokter> {
-    const updatedResult = await this.jadwalDokterRepository.update(id, jadwalDokter);
+    const updatedResult = await this.jadwalDokterRepository.update(
+      id,
+      jadwalDokter,
+    );
     if (updatedResult.affected > 0) return this.findOne(id);
 
     throw new Error('Jadwal Dokter Update Failed!');

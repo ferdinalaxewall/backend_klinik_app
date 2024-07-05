@@ -15,9 +15,9 @@ export class PoliService {
   }
 
   async findOne(id: number): Promise<Poli> {
-    const data = await this.poliRepository.findOneBy({id});
+    const data = await this.poliRepository.findOneBy({ id });
     if (data) return data;
-    
+
     throw new Error('Poli not found!');
   }
 
