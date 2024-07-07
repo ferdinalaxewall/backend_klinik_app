@@ -7,4 +7,7 @@ export class Poli {
 
   @Column()
   nama_poli: string;
+
+  @Column()
+  deskripsi: string;
 }
